@@ -1,0 +1,219 @@
+{
+  "config": {
+    "pop": 16,
+    "gens": 12,
+    "epochs": 5,
+    "final_epochs": 40,
+    "final_seeds": 3,
+    "seed": 0,
+    "skip_random": false,
+    "quick": false
+  },
+  "device": "cuda",
+  "ga_minutes": 5.6,
+  "networks_trained_by_ga": 180,
+  "final": [
+    {
+      "model": "GA winner",
+      "genome": {
+        "n_blocks": 5,
+        "filters": [
+          32,
+          64,
+          64,
+          128,
+          128
+        ],
+        "kernel": 3,
+        "dense": 0,
+        "dropout": 0.15,
+        "lr_exp": -2.6
+      },
+      "describe": "conv 32-64-64-128-128 | kernel 3x3 | dense none | dropout 0.15 | lr 2.5e-03",
+      "params": 278374,
+      "test_acc_mean": 0.9907407760620117,
+      "test_acc_std": 0.005237841745539867,
+      "val_acc_mean": 0.9925926327705383,
+      "runs": [
+        {
+          "seed": 0,
+          "val_acc": 0.9944444894790649,
+          "test_acc": 0.9944444894790649,
+          "test_loss": 0.017286226153373718,
+          "best_epoch": 36,
+          "seconds": 13.9
+        },
+        {
+          "seed": 1,
+          "val_acc": 0.9888889193534851,
+          "test_acc": 0.9833333492279053,
+          "test_loss": 0.04503153637051582,
+          "best_epoch": 21,
+          "seconds": 16.0
+        },
+        {
+          "seed": 2,
+          "val_acc": 0.9944444894790649,
+          "test_acc": 0.9944444894790649,
+          "test_loss": 0.017856242135167122,
+          "best_epoch": 33,
+          "seconds": 16.3
+        }
+      ]
+    },
+    {
+      "model": "Random-search winner",
+      "genome": {
+        "n_blocks": 5,
+        "filters": [
+          64,
+          16,
+          128,
+          32,
+          128
+        ],
+        "kernel": 7,
+        "dense": 0,
+        "dropout": 0.4,
+        "lr_exp": -2.9
+      },
+      "describe": "conv 64-16-128-32-128 | kernel 7x7 | dense none | dropout 0.40 | lr 1.3e-03",
+      "params": 556582,
+      "test_acc_mean": 0.9851852059364319,
+      "test_acc_std": 0.006929013332705473,
+      "val_acc_mean": 0.9944444894790649,
+      "runs": [
+        {
+          "seed": 0,
+          "val_acc": 0.9944444894790649,
+          "test_acc": 0.9944444894790649,
+          "test_loss": 0.022184006869792938,
+          "best_epoch": 39,
+          "seconds": 23.5
+        },
+        {
+          "seed": 1,
+          "val_acc": 0.9944444894790649,
+          "test_acc": 0.9833333492279053,
+          "test_loss": 0.0399983711540699,
+          "best_epoch": 33,
+          "seconds": 21.7
+        },
+        {
+          "seed": 2,
+          "val_acc": 0.9944444894790649,
+          "test_acc": 0.9777777791023254,
+          "test_loss": 0.057612545788288116,
+          "best_epoch": 37,
+          "seconds": 21.3
+        }
+      ]
+    },
+    {
+      "model": "Hand-designed CNN",
+      "genome": {
+        "n_blocks": 3,
+        "filters": [
+          32,
+          64,
+          128,
+          128,
+          128
+        ],
+        "kernel": 3,
+        "dense": 128,
+        "dropout": 0.5,
+        "lr_exp": -3.0
+      },
+      "describe": "conv 32-64-128 | kernel 3x3 | dense 128 | dropout 0.50 | lr 1.0e-03",
+      "params": 110182,
+      "test_acc_mean": 0.9777777989705404,
+      "test_acc_std": 0.00907218369179685,
+      "val_acc_mean": 0.9814815123875936,
+      "runs": [
+        {
+          "seed": 0,
+          "val_acc": 0.9833333492279053,
+          "test_acc": 0.9666666984558105,
+          "test_loss": 0.10255678743124008,
+          "best_epoch": 31,
+          "seconds": 11.2
+        },
+        {
+          "seed": 1,
+          "val_acc": 0.9722222685813904,
+          "test_acc": 0.9777777791023254,
+          "test_loss": 0.061512403190135956,
+          "best_epoch": 36,
+          "seconds": 11.3
+        },
+        {
+          "seed": 2,
+          "val_acc": 0.9888889193534851,
+          "test_acc": 0.9888889193534851,
+          "test_loss": 0.04446376860141754,
+          "best_epoch": 37,
+          "seconds": 11.4
+        }
+      ]
+    }
+  ],
+  "confusion_matrix": [
+    [
+      30,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      30,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      30,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      29,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      30,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      30
+    ]
+  ],
+  "ga_winner_per_class_test_acc": {
+    "crazing": 1.0,
+    "inclusion": 1.0,
+    "patches": 1.0,
+    "pitted_surface": 0.9666666666666667,
+    "rolled-in_scale": 1.0,
+    "scratches": 1.0
+  }
+}
